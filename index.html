@@ -7,7 +7,7 @@
     <title>Appartements Azur — Montebello, Outaouais</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg?v=7">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -114,7 +114,7 @@
                     rgba(8, 40, 60, .88) 78%,
                     rgba(6, 28, 44, .98) 100%
                 ),
-                url('BackgoundMontebello.PNG')
+                url('Montebello/LesDeuxDuplex.jpg')
                 center / cover no-repeat;
         }
 
@@ -130,11 +130,19 @@
         }
 
         /* ── Logo ── */
-        .logo {
+        .logo-frame {
             width: 220px;
             height: 220px;
             margin-bottom: 2.25rem;
-            filter: drop-shadow(0 8px 36px rgba(0, 0, 0, .5));
+            border-radius: 10%;
+            overflow: hidden;
+            box-shadow: 0 8px 36px rgba(0, 0, 0, .5);
+        }
+
+        .logo {
+            display: block;
+            width: 100%;
+            height: 100%;
         }
 
         /* ── Status badge ── */
@@ -219,52 +227,181 @@
             margin-bottom: 2.75rem;
         }
 
-        /* ── Progress card ── */
-        .card {
-            width: 100%;
-            max-width: 370px;
-            padding: 1.5rem 1.75rem;
-            background: rgba(15, 74, 102, .38);
-            border: 1px solid rgba(79, 168, 203, .18);
-            border-radius: 14px;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+        a.location {
+            text-decoration: none;
+            transition: color .2s;
         }
 
-        .card-label {
-            font-size: .63rem;
+        a.location:hover,
+        a.location:focus-visible {
+            color: var(--light);
+        }
+
+        a.location:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        /* ── Ad buttons ── */
+        .cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2.25rem;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
+            background: var(--accent);
+            color: #fff;
+            font-size: .85rem;
+            font-weight: 700;
+            letter-spacing: .04em;
+            text-decoration: none;
+            padding: .9rem 1.8rem;
+            border-radius: 100px;
+            box-shadow: 0 8px 24px rgba(79, 168, 203, .35);
+            transition: transform .2s, box-shadow .2s, background .2s;
+        }
+
+        .cta-btn:hover,
+        .cta-btn:focus-visible {
+            background: var(--light);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(79, 168, 203, .45);
+        }
+
+        .cta-btn:focus-visible {
+            outline: 2px solid var(--white);
+            outline-offset: 3px;
+        }
+
+        /* ══════════════════════════════════════════
+           Listings
+        ══════════════════════════════════════════ */
+        .listings {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 3.5rem;
+            text-align: center;
+        }
+
+        .listings-label {
+            font-size: .67rem;
             font-weight: 700;
             letter-spacing: .22em;
             text-transform: uppercase;
             color: var(--accent);
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
         }
 
-        .track {
-            height: 3px;
-            background: rgba(79, 168, 203, .15);
-            border-radius: 3px;
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: .4rem;
+            margin-bottom: 2rem;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: 1px solid rgba(79, 168, 203, .35);
+            color: var(--pale);
+            font-family: inherit;
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: .05em;
+            padding: .5rem 1.4rem;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: background .2s, color .2s;
+        }
+
+        .tab-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+        }
+
+        .tab-btn:hover:not(.active) {
+            background: rgba(79, 168, 203, .2);
+            color: var(--white);
+        }
+
+        .listing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 1.5rem;
+            text-align: left;
+        }
+
+        .listing-card {
+            background: rgba(15, 74, 102, .38);
+            border: 1px solid rgba(79, 168, 203, .18);
+            border-radius: 14px;
             overflow: hidden;
-            margin-bottom: .6rem;
         }
 
-        .fill {
-            height: 100%;
-            width: 70%;
-            background: linear-gradient(to right, var(--accent), var(--light));
-            border-radius: 3px;
-            animation: shimmer 3s ease-in-out infinite;
+        .listing-photo {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            display: block;
         }
 
-        @keyframes shimmer {
-            0%, 100% { opacity: .75; }
-            50%       { opacity: 1; }
+        .listing-thumbs {
+            display: flex;
+            gap: .4rem;
+            overflow-x: auto;
+            padding: .6rem;
         }
 
-        .pct {
-            text-align: right;
+        .listing-thumbs img {
+            width: 56px;
+            height: 42px;
+            object-fit: cover;
+            border-radius: 6px;
+            flex: 0 0 auto;
+            cursor: pointer;
+            opacity: .7;
+            transition: opacity .2s;
+        }
+
+        .listing-thumbs img:hover {
+            opacity: 1;
+        }
+
+        .listing-body {
+            padding: 0 1.25rem 1.25rem;
+        }
+
+        .listing-type {
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: .4rem;
+        }
+
+        .listing-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: .35rem;
+        }
+
+        .listing-price span {
             font-size: .68rem;
-            font-weight: 500;
+            font-weight: 400;
+            color: var(--pale);
+        }
+
+        .listing-specs {
+            font-size: .78rem;
             color: var(--pale);
         }
 
@@ -284,7 +421,7 @@
            Responsive
         ══════════════════════════════════════════ */
         @media (max-width: 480px) {
-            .logo  { width: 170px; height: 170px; }
+            .logo-frame { width: 170px; height: 170px; }
             .hero  { padding-top: 4.5rem; }
         }
     </style>
@@ -307,44 +444,68 @@
 
     <div class="hero-content">
 
-        <img class="logo" src="assets/logo.svg" alt="Logo Appartements Azur">
+        <span class="logo-frame">
+            <img class="logo" src="assets/logo.svg?v=7" alt="Logo Appartements Azur">
+        </span>
 
         <!-- Status badge -->
         <div class="badge" role="status" aria-live="polite">
             <span class="badge-dot" aria-hidden="true"></span>
-            <span class="fr-only">Site en construction</span>
-            <span class="en-only" style="display:none">Website under construction</span>
+            <span class="fr-only">Duplex disponibles maintenant</span>
+            <span class="en-only" style="display:none">Duplexes available now</span>
         </div>
 
         <!-- Heading — FR -->
         <h1 class="heading fr-only">
-            Quelque chose d'<strong>exceptionnel</strong><br>arrive bientôt
+            Nos duplex sont <strong>prêts</strong><br>pour vous accueillir
         </h1>
         <!-- Heading — EN -->
         <h1 class="heading en-only" style="display:none">
-            Something <strong>exceptional</strong><br>is coming soon
+            Our duplexes are <strong>ready</strong><br>for you
         </h1>
 
         <hr class="rule" aria-hidden="true">
 
         <!-- Description — FR -->
         <p class="body-text fr-only">
-            Appartements Azur prépare des logements de qualité au cœur de Montebello,
+            Appartements Azur offre des logements de qualité au cœur de Montebello,
             une ville pittoresque de la région de l'Outaouais.
-            Nos appartements seront disponibles à la location dès le
-            <strong>1er septembre 2026</strong>. Consultez dès maintenant nos annonces
-            sur DuProprio et d'autres plateformes. Notre site web, quant à lui,
-            est toujours en construction&nbsp;—&nbsp;revenez nous voir bientôt&nbsp;!
+            Nos duplex sont maintenant <strong>prêts</strong> et disponibles à la location dès aujourd'hui.
+            Vous préférez emménager plus tard&nbsp;? Le début du bail peut aussi être fixé au
+            1er octobre ou au 1er novembre, selon vos besoins. Consultez dès maintenant nos
+            annonces sur Facebook Marketplace, DuProprio et d'autres plateformes, ou
+            communiquez avec nous pour organiser une visite.
         </p>
         <!-- Description — EN -->
         <p class="body-text en-only" style="display:none">
-            Appartements Azur is preparing quality housing in the heart of Montebello,
+            Appartements Azur offers quality housing in the heart of Montebello,
             a picturesque city in the Outaouais region.
-            Our apartments will be available for rent starting
-            <strong>September 1, 2026</strong>. Check out our listings now on
-            DuProprio and other platforms. Our website, meanwhile, is still under
-            construction&nbsp;—&nbsp;check back with us soon!
+            Our duplexes are now <strong>ready</strong> and available for rent starting today.
+            Prefer to move in later? The lease start date can also be set for October 1
+            or November 1, depending on your needs. Check out our listings now on
+            Facebook Marketplace, DuProprio and other platforms, or contact us to
+            arrange a viewing.
         </p>
+
+        <!-- Ad buttons -->
+        <div class="cta-group">
+            <a class="cta-btn" href="https://www.facebook.com/share/p/1J5cBMTbiN/"
+               target="_blank" rel="noopener noreferrer">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M13.5 9.5H15.5V6.5H13.5C11.57 6.5 10 8.07 10 10V11.5H8V14.5H10V21H13V14.5H15.09L15.5 11.5H13V10C13 9.72 13.22 9.5 13.5 9.5Z"/>
+                </svg>
+                <span class="fr-only">Voir l'annonce 3&#189;</span>
+                <span class="en-only" style="display:none">View the 3&#189; listing</span>
+            </a>
+            <a class="cta-btn" href="https://www.facebook.com/share/p/1FYJ5JGTk8/"
+               target="_blank" rel="noopener noreferrer">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M13.5 9.5H15.5V6.5H13.5C11.57 6.5 10 8.07 10 10V11.5H8V14.5H10V21H13V14.5H15.09L15.5 11.5H13V10C13 9.72 13.22 9.5 13.5 9.5Z"/>
+                </svg>
+                <span class="fr-only">Voir l'annonce 5&#189;</span>
+                <span class="en-only" style="display:none">View the 5&#189; listing</span>
+            </a>
+        </div>
 
         <!-- Location -->
         <div class="location">
@@ -365,39 +526,43 @@
                 <rect x="3" y="4" width="18" height="18" rx="2"/>
                 <path d="M16 2v4M8 2v4M3 10h18"/>
             </svg>
-            <span class="fr-only">Location dès le 1er septembre 2026</span>
-            <span class="en-only" style="display:none">Rentals starting September 1, 2026</span>
+            <span class="fr-only">Disponible maintenant &mdash; début de bail flexible (oct. ou nov.)</span>
+            <span class="en-only" style="display:none">Available now &mdash; flexible lease start (Oct. or Nov.)</span>
         </div>
 
-        <!-- Progress card -->
-        <div class="card">
-            <p class="card-label">
-                <span class="fr-only">En cours de développement</span>
-                <span class="en-only" style="display:none">In development</span>
-            </p>
-            <div class="track"
-                 role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"
-                 aria-label="70%">
-                <div class="fill"></div>
-            </div>
-            <p class="pct">
-                <span class="fr-only">70&thinsp;% complété</span>
-                <span class="en-only" style="display:none">70% complete</span>
-            </p>
-        </div>
+        <!-- Facebook page -->
+        <a class="location" href="https://www.facebook.com/AppartementsAzur"
+           target="_blank" rel="noopener noreferrer">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M13.5 9.5H15.5V6.5H13.5C11.57 6.5 10 8.07 10 10V11.5H8V14.5H10V21H13V14.5H15.09L15.5 11.5H13V10C13 9.72 13.22 9.5 13.5 9.5Z"/>
+            </svg>
+            <span class="fr-only">Notre page Facebook officielle</span>
+            <span class="en-only" style="display:none">Our official Facebook page</span>
+        </a>
+
+        <!-- Phone -->
+        <a class="location" href="tel:+18194851425">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            819-485-1425
+        </a>
+
+        <!-- Email -->
+        <a class="location" href="mailto:location@appartementsazur.com">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="M22 6 12 13 2 6"/>
+            </svg>
+            location@appartementsazur.com
+        </a>
 
     </div>
 </main>
-
-<!-- ══════════════════════════════════════════
-     Footer
-════════════════════════════════════════════ -->
-<footer>
-    <span class="fr-only">© 2026 Appartements Azur. Tous droits réservés.
-        &nbsp;·&nbsp; Montebello, Outaouais</span>
-    <span class="en-only" style="display:none">© 2026 Appartements Azur. All rights reserved.
-        &nbsp;·&nbsp; Montebello, Outaouais</span>
-</footer>
 
 <!-- ══════════════════════════════════════════
      Language switching
@@ -424,9 +589,7 @@
         btnEn.setAttribute('aria-pressed', String(!isFr));
 
         // Update page title
-        document.title = isFr
-            ? 'Appartements Azur \u2014 Montebello, Outaouais'
-            : 'Appartements Azur \u2014 Montebello, Outaouais | Coming Soon';
+        document.title = 'Appartements Azur \u2014 Montebello, Outaouais';
     }
 
     // Boot in French (default)

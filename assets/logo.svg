@@ -38,8 +38,7 @@
        height="194.72159"
        id="page2"
        margin="0"
-       bleed="0" /></sodipodi:namedview><defs
-     id="defs1"><clipPath id="roundedClip"><rect x="20" y="20" width="154.72156" height="154.72159" rx="15"/></clipPath></defs><g clip-path="url(#roundedClip)"><rect width="194.72156" height="194.72159" rx="15" fill="white"/><g
+       bleed="0" /></sodipodi:namedview><rect y="35" width="194.72156" height="124.72159" fill="white"/><g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
@@ -143,4 +142,4 @@
        style="fill:#9ac8ea;fill-opacity:1;stroke:#000000;stroke-width:0.0104443;stroke-dasharray:none;stroke-opacity:1"
        d="m 385.96672,339.20553 c 0,-17.28843 0.01,-24.3481 0.022,-15.68815 0.0121,8.65995 0.0121,22.80503 0,31.43351 -0.0121,8.62848 -0.022,1.54307 -0.022,-15.74536 z"
        id="path26"
-       transform="scale(0.26458333)" /></g></g></svg>
+       transform="scale(0.26458333)" /></g></svg>
